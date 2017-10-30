@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+ <!DOCTYPE hibernate-configuration PUBLIC
+          "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+	<session-factory>
+		<!--  <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">Mysql123$</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/testing</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLInnoDBDialect</property>  -->
+		
+		 <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+		<property name="hibernate.connection.username">sa</property>
+		<property name="hibernate.connection.password">Sql123$</property>
+		<property name="hibernate.connection.url">jdbc:sqlserver://PC1474\SQLEXPRESS:1433;databaseName=BigBasket</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property> 
+		
+
+		<!-- Mapped Entities -->
+
+		 <mapping class="com.mvp.model.User" /> 
+		 <mapping class="com.mvp.model.UserDetail" /> 
+		 <mapping class="com.mvp.model.Category" />
+		 <mapping class="com.mvp.model.Brand" />
+		 <mapping class="com.mvp.model.Product" />
+		
+
+
+	</session-factory>
+</hibernate-configuration>
