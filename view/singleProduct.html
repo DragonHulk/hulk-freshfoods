@@ -1,0 +1,31 @@
+<div>
+  <center>
+    <h3>{{singleproduct.product_name}}</h3>
+    <img  src={{singleproduct.image_path}}
+          height = "200px"
+          width = "200px">
+    <div ng-show ="(singleproduct.quantity <= 0)">product not available</div>
+    <table>
+    <tr>
+      <th>price:</th><td>{{singleproduct.price}}</td>
+    </tr>
+    <tr>
+      <th>quantity available:</th><td>{{singleproduct.quantity}}</td>
+    </tr>
+    <tr>
+      <th>description:</th><td>{{singleproduct.description}}</td>
+    </tr>
+    </table>
+    <form name="myForm" ng-submit="buy(quantity,singleproduct)">
+    <input  type="number"
+            placeholder="select Quantity"
+            value="1"
+            min="1"
+            max="{{singleproduct.quantity}}"
+            ng-model ="quantity"
+            ng-pattern="/^[0-9]{1,7}$/"
+            required><br>
+    <input type="submit" value="buy"/>
+    </form>
+  </center>
+</div>

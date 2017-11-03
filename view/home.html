@@ -1,0 +1,63 @@
+  <div class="container">
+  <div class="header-panel header">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <h2>FRESH FOODS</h2>
+      </div>
+      <ul class="nav navbar-nav" style="float:right">
+        <li><a ng-href="#!/home/profile">Profile</a></li>
+        <li><a ng-href= "#!/home/order">MY Orders</a></li>
+        <li><a ng-href= "#!/home/cart">MY cart</a></li>
+        <li><a ng-href= "#!/logout">logout</a></li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <span><center>welcome  <b>{{user.name}}</b></center></span>
+    </div>
+    <div class="col-md-6">
+      <input type="text" placeholder="search by product name" ng-model="searchvalue">
+      <button type="button" class="btn btn-info" ng-click="getproductbysearchvalue(searchvalue)">
+      <span class="glyphicon glyphicon-search"></span> Search
+      </button>
+    </div>
+  <div class="col-md-3 sidebar">
+     <ul class="sidebar">
+    <li class="sidebar" ><h4><a ng-click="getallproduct()">All Products</a></h4></li>
+      <div>
+        <li class="sidebar"><h4>category</h4></li>
+        <ul class="sidebar">
+          <li class="sidebar"
+              ng-repeat="category in category"
+              ng-click="getProductByCategory(category.category_id)">
+              <a>{{category.category_name}}</a>
+          </li>
+        </ul>
+
+      <div>
+        <li class="sidebar"><h4>brand</h4></li>
+        <ul class="sidebar">
+          <li   class="sidebar"
+                ng-repeat="brand in brands"
+                ng-click="getProductByBrand(brand.brandid)">
+                <a>{{brand.name}}</a>
+          </li>
+        </ul>
+      </div>
+
+        </div>
+      <ul>
+  </div>
+  <div class="col-md-9 content">
+    <div ui-view></div>
+  </div>
+</div>
+
+ <div class="footer-panel footer">
+    <b>contact:</b>044-2714545<br>
+</div>
+</div>

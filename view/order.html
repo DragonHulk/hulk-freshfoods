@@ -1,0 +1,20 @@
+<div>
+  <center>
+    <h4>YOUR ORDERS</h4>
+    <div class="container">
+    <table class="table table-bordered ">
+      <tr>
+        <th>orderid</th>
+        <th>delivery status</th>
+      </tr>
+      <tr ng-repeat = "orderList in orderList">
+        <td>{{orderList.order_id}}</td>
+        <td><div ng-show=(orderList.delivery_status==1)>approved</div>
+            <div ng-show=(orderList.delivery_status==2)>shipped</div>
+            <div ng-show=(orderList.delivery_status==3)>delivered</div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  </center>
+</div>
