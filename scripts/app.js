@@ -1,4 +1,4 @@
-angular.module('myapp', ["ui.router","ui-notification"])
+angular.module('myapp', ["ui.router","ui-notification","base64"])
     .config(function($stateProvider, $urlRouterProvider,NotificationProvider){
 
 			$stateProvider
@@ -26,6 +26,11 @@ angular.module('myapp', ["ui.router","ui-notification"])
 				url: '/logout',
 				templateUrl: 'view/logout.html',
         controller:'logoutCtrl',
+			})
+      .state('root.payment', {
+				url: '/payment',
+				templateUrl: 'view/payment.html',
+        controller:'paymentCtrl',
 			})
 
       .state('root.home.profile',{
@@ -71,6 +76,6 @@ angular.module('myapp', ["ui.router","ui-notification"])
           verticalSpacing: 20,
           horizontalSpacing: 20,
           positionX: 'right',
-          positionY: 'top'
+          positionY: 'bottom'
       });
     });

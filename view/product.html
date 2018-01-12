@@ -1,16 +1,22 @@
-<div ng-show=!(product.length)>oops! no products to display</div>
-<div  class ="col-md-3 product"
-      ng-repeat = "product in product"
-      ng-click="buyproduct(product.product_id)"
-      style="cursor:pointer">
-  <div>
-    <center>
-      <img  src ={{product.image_path}}
-            alt="image not found"
-            height="100px"
-            width="100px" ><br>
-      <b>name:</b>{{product.product_name}}<br>
-      <b>price:</b>{{product.price}} rupees<br>
-    </center>
+<div ng-show=!(product.length)>
+  <div class="jumbotron">
+    <h4>Oops!No products to display</h4>
+  </div>
+</div>
+<div class ="col-md-12" style="padding-left:120px">
+  <div  class ="col-md-3 product"
+        ng-repeat = "product in product"
+        ng-click="buyproduct(product.product_id)"
+        style="cursor:pointer;height:165px">
+    <div>
+      <center>
+        <img  src ={{product.image_path}}
+              alt="image not found"
+              height="100px"
+              width="100px" ><br>
+        <b>Name:</b>{{initCap(product.product_name)}}<br>
+        <b>Price:</b>{{product.price}} rupees<br>
+      </center>
+    </div>
   </div>
 </div>

@@ -5,13 +5,15 @@ angular.module('myapp')
       '$http',
 			'$window',
 			'sharedService',
-			'Notification', function (
+			'Notification',
+			'$base64',function (
 		  $scope,
 			$state,
       $http,
 			$window,
 			sharedService,
-			Notification) {
+			Notification,
+			$base64) {
 
 	   var init = function init() {
        $scope.user = {};
@@ -21,6 +23,7 @@ angular.module('myapp')
 	   };
 
 		$scope.onLogin = function onLogin(){
+			//encrypt();
 			var data = {
 				emailid: $scope.user.emailid,
 				pwd: $scope.user.password
@@ -36,6 +39,10 @@ angular.module('myapp')
 					});
 
 		};
+
+		//function encrypt(){
+		//	$scope.encoded = $base64.encode('a string');
+		//}
 
     $scope.onSignup = function onSignup(){
       $state.go('root.signup');
@@ -55,8 +62,8 @@ angular.module('myapp')
 						console.log(error);
 					});
 				}
-
 		}
+		
 		function addUserToDetails(detail,id){
 			$scope.detail.userid = id;
 			var url = "http://localhost:8080/FreshFoods/rest/userdetail/add";
@@ -77,7 +84,8 @@ angular.module('myapp')
 				return 1;
 			}
 			else {
-				return 0;
+				$scope.Status = "Pasword did not match";
+					return 0;
 			}
 		}
 

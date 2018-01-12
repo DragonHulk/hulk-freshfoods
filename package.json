@@ -1,0 +1,17 @@
+{
+  "name": "ui_paradigm",
+  "version": "1.0.0",
+  "description": "sample ui paradigm",
+  "main": "index.js",
+  "scripts": {
+    "dev": "lite-server"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.4"
+  },
+  "devDependencies": {
+    "lite-server": "^2.3.0"
+  }
+}

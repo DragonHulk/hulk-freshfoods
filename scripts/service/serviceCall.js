@@ -22,4 +22,11 @@ angular.module("myapp")
           return (error);
        });
      }
+
+		 this.getAllProductsInCartByUserid = function getAllProductsInCartByUserid(cbsCart,id){
+			 var url = "http://localhost:8080/FreshFoods/rest/cart/getAllProductsByUserid?id="+id;
+ 			$http.get(url).then(cbsCart, function(error){
+ 						console.log(error);
+ 					});
+		 }
    }]);

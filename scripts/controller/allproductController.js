@@ -27,6 +27,10 @@ angular.module('myapp')
 			 	$state.go("root.home.singleproduct",{id:id});
 		 }
 
+		 $scope.initCap = function initCap(str){
+			 return str.charAt(0).toUpperCase()+str.slice(1);
+		 }
+
 
 			init();
  }]);

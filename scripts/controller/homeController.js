@@ -18,19 +18,21 @@ angular.module('myapp')
 			$scope.category = {};
 			$scope.brands = {};
 			$scope.user = {};
+
 			var id = parseInt($window.sessionStorage.getItem("loggedInUser"));
 			if(isNaN(id)){
 				$state.go('root.login');
 			}
+
 			serviceCall.getallcategory(cbSucessCategory);
-			serviceCall.getUserDetailById(cbSucessUser,id)
+			serviceCall.getUserDetailById(cbSucessUser,id);
 
 			var url1 = "http://localhost:8080/FreshFoods/rest/brands/getAllBrands";
 			$http.get(url1).then(
 				function(payload) {
           $scope.brands = payload.data;
 				}, function(error){
-					 Notification.error({message:error, delay: 1000});
+					 Notification.error("Problem in getting all brands ");
 				});
 	   };
 
@@ -50,7 +52,7 @@ angular.module('myapp')
            $scope.product = (payload.data);
 					 $state.go('root.home.product');
 				 }, function(error){
-           console.log(error);
+            Notification.error("Problem in getting products by the category you requested ");
 				 });
      }
 
@@ -61,19 +63,10 @@ angular.module('myapp')
            $scope.product = (payload.data);
 					 $state.go('root.home.product');
 				 }, function(error){
-           console.log(error);
+           Notification.error("Problem in getting products by the Brand you requested ");
 				 });
      }
-		 $scope.getallproduct = function getallproduct(){
-			 var url = "http://localhost:8080/FreshFoods/rest/product/getallproduct"
-			 $http.get(url).then(
-			 function(payload) {
-					$scope.product = (payload.data);
-					$state.go('root.home.product');
-			 }, function(error){
-					console.log(error);
-			 });
-		 }
+
 		 $scope.getproductbysearchvalue = function getproductbysearchvalue(value){
 			 var url = "http://localhost:8080/FreshFoods/rest/product/getallproductbysearch?value="+value+"";
 			 $http.get(url).then(
@@ -81,9 +74,16 @@ angular.module('myapp')
 					$scope.product = (payload.data);
 					$state.go('root.home.product');
 			 }, function(error){
-					console.log(error);
+					Notification.error("Problem in getting products That you searched");
 			 });
 		 }
 
+		 $scope.addMoney = function addMoney(){
+			 $state.go('root.payment');
+		 }
+
+		 $scope.initCap = function initCap(str){
+			return str.charAt(0).toUpperCase()+str.slice(1);
+		}
 			init();
  }]);
