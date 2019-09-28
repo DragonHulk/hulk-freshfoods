@@ -1,0 +1,43 @@
+<div>
+  <center>
+    <h3>{{initCap(singleproduct.product_name)}}</h3>
+    <img  src={{singleproduct.image_path}}
+          height = "200px"
+          width = "200px"
+          style ="border:1px solid black" >
+    <div  ng-show ="(singleproduct.quantity <= 0)"
+          style="background-color:red;color:snow">Product not available</div>
+          <br><br>
+    <table class="table table-bordered">
+    <tr>
+      <th>Price</th><td>{{singleproduct.price}}</td>
+    </tr>
+    <tr>
+      <th>Quantity available</th><td>{{singleproduct.quantity}}</td>
+    </tr>
+    <tr>
+      <th>Description</th><td>{{initCap(singleproduct.description)}}</td>
+    </tr>
+      </table>
+      <form>
+          <input  type="number"
+                  placeholder="select Quantity"
+                  value=1
+                  min="1"
+                  max="{{singleproduct.quantity}}"
+                  ng-model ="quantity"
+                  pattern="[0-9]{1,7}"
+                  required
+                  class="col-md-6"
+                  style="margin-top:5px;margin-right:10px"/>
+          <button   style="margin-right:10px"
+                    class="btn btn-primary col-md-2"
+                    ng-click="buy(quantity,singleproduct)">Buy
+          </button>
+          <button class="btn btn-primary col-md-2"
+                  ng-click="addToCart(quantity,singleproduct)">Add To Cart
+          </button>
+      </form>
+    </center>
+
+</div>

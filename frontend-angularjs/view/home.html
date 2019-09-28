@@ -1,0 +1,88 @@
+  <div class="container home" style="border:1px solid snow">
+  <div class="header-panel header">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <h2>Fresh Foods</h2>
+      </div>
+      <ul class="nav navbar-nav" style="float:right">
+        <li><a ng-href="#!/home/allproduct">Home</a></li>
+        <li><a ng-href="#!/home/profile">Profile</a></li>
+        <li><a ng-href= "#!/home/order">Orders</a></li>
+        <li><a ng-href= "#!/home/cart">Cart</a></li>
+        <li><a ng-href= "#!/logout">logout</a></li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+  <div class="row secondheader">
+    <div class="col-md-6" >
+      <span class="greeting" style="float:left"> <h4>Welcome {{initCap(user.name)}}</h4></span>
+    </div>
+    <div class="col-md-6" >
+        <div class="search input" style="float:right">
+          <input  type="text"
+                  placeholder="search by product name"
+                  ng-model="searchvalue"
+                  ng-change="getproductbysearchvalue(searchvalue)">
+      <span class="glyphicon glyphicon-search" style="color:white">Search</span>
+      </div>
+    </div>
+    <hr>
+  </div>
+  <div class="row">
+  <div class="col-md-3 sidebar">
+
+     <ul class="sidebar">
+      <div>
+        <li class="sidebar"><h4>Category</h4></li>
+        <ul class="sidebar">
+          <li class="sidebar"
+              ng-repeat="category in category"
+              ng-click="getProductByCategory(category.category_id)">
+              <a>{{initCap(category.category_name)}}</a>
+          </li>
+        </ul>
+
+      <div>
+        <li class="sidebar"><h4>Brand</h4></li>
+        <ul class="sidebar">
+          <li   class="sidebar"
+                ng-repeat="brand in brands"
+                ng-click="getProductByBrand(brand.brandid)">
+                <a>{{initCap(brand.name)}}</a>
+          </li>
+        </ul>
+      </div>
+
+        </div>
+      <ul>
+  </div>
+
+  <div class="col-md-9 content">
+
+    <div ui-view></div>
+
+  </div>
+</div>
+
+<footer>
+      <div class="col-md-12 footer">
+        <hr>
+        <div >
+          <div class="col-md-4">
+            <p>124 Market Street,Chennai,Tamil Nadu,India</p>
+            <p><a href="mailto:freshsoods@gmail.com">freshsoods@gmail.com</a></p>
+            <p>(044) 20489372 / 203403222</p>
+          </div>
+          <div class="col-md-4">
+
+          </div>
+          <div class="col-md-4">
+              <br><br><br><p>© 2017 Harish Studios | All Rights Reserved.</p>
+          </div>
+        </div>
+      </div>
+</footer>
+</div>
