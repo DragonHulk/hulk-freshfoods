@@ -10,7 +10,6 @@ public class CategoryServiceImpl implements CategoryService {
 	
 	CategoryDao categorydao = new CategoryDaoImpl();
 
-	@Override
 	public List<Category> getallcategory() {
 		
 		return categorydao.getallcategory(); 

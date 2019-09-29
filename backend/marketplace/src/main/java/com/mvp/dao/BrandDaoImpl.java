@@ -9,7 +9,6 @@ public class BrandDaoImpl implements BrandDao {
 	
 	HibernateUtil hibernateUtil =new HibernateUtil();
 
-	@Override
 	public List<Brand> getAllBrands() {
 		hibernateUtil.openCurrentSession();
 		List<Brand> brandList = (List<Brand>)hibernateUtil.getCurrentSession().createQuery("from Brand").list();

@@ -1,1 +1,4 @@
 /build/
+backend/marketplace/target/
+backend/marketplace/.settings/
+backend/marketplace/.project

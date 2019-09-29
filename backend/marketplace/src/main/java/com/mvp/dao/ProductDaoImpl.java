@@ -8,7 +8,6 @@ import com.mvp.utils.HibernateUtil;
 public class ProductDaoImpl implements ProductDao {
 	HibernateUtil hibernateUtil =new HibernateUtil();
 
-	@Override
 	public List<Product> getproductbycategory(int id) {
 		
 		hibernateUtil.openCurrentSession();
@@ -18,7 +17,6 @@ public class ProductDaoImpl implements ProductDao {
 		return product;
 	}
 
-	@Override
 	public List<Product> getallproduct() {
 		
 		hibernateUtil.openCurrentSession();
@@ -28,7 +26,6 @@ public class ProductDaoImpl implements ProductDao {
 		return product;
 	}
 
-	@Override
 	public List<Product> getallproductbysearch(String value) {
 		hibernateUtil.openCurrentSession();
 		List<Product> product = (List<Product>)hibernateUtil.getCurrentSession().createQuery("from Product where product_name like '%"+value+"%'").list();
@@ -36,7 +33,6 @@ public class ProductDaoImpl implements ProductDao {
 		return product;
 	}
 
-	@Override
 	public List<Product> getallproductbybrand(int id) {
 		
 		hibernateUtil.openCurrentSession();
@@ -46,7 +42,6 @@ public class ProductDaoImpl implements ProductDao {
 		return product;
 	}
 
-	@Override
 	public List<Product> getproductbyid(int id) {
 		hibernateUtil.openCurrentSession();
 		List<Product> product = (List<Product>)hibernateUtil.getCurrentSession().createQuery("from Product where product_id="+id+"").list();

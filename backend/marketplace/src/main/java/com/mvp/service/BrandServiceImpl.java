@@ -10,10 +10,11 @@ public class BrandServiceImpl implements BrandService {
 	
 	BrandDao brandDao = new BrandDaoImpl();
 
-	@Override
 	public List<Brand> getAllBrands() {
 		
 		return brandDao.getAllBrands();
 	}
+	
+	public void sample() {}
 
 }

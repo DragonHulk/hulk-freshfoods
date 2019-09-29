@@ -8,7 +8,6 @@ public class UserDaoImpl implements UserDao{
 
 	HibernateUtil hibernateUtil =  new HibernateUtil();
 	
-	@Override
 	public User findUserByEmail(String email,String pwd) {
 		
 		hibernateUtil.openCurrentSession();
@@ -19,7 +18,6 @@ public class UserDaoImpl implements UserDao{
 		return user;
 	}
 
-	@Override
 	public String addUser(User user) {
 		hibernateUtil.openCurrentSessionwithTransaction();
 		Integer id = (Integer)hibernateUtil.getCurrentSession().save(user);

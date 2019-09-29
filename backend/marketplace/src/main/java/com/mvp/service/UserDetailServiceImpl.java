@@ -7,7 +7,6 @@ import com.mvp.model.UserDetail;
 public class UserDetailServiceImpl implements UserDetailService{
 	UserDetailDao userDao = new UserDetailDaoImpl();
 
-	@Override
 	public String addUser(UserDetail user) {
 		
 		return userDao.add(user);
